@@ -6,7 +6,7 @@ import sys
 import pytest
 
 # Alternatively (safer): collect from all lab*, then filter manually
-all_notebooks = glob.glob("lab*/ex*.ipynb")
+all_notebooks = glob.glob("lab/lab*/ex*.ipynb")
 
 # Filter out lab0 and files containing "text"
 TUTORIAL_FILENAMES = [
@@ -71,5 +71,6 @@ if __name__ == "__main__":
         filenames = [sys.argv[1]]
     except IndexError:
         filenames = TUTORIAL_FILENAMES
+    print(filenames)
     for tut_path in filenames:
         test_run_tutorials(tutorial_path=tut_path)
