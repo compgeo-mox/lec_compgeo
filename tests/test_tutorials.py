@@ -17,10 +17,10 @@ TUTORIAL_FILENAMES = [
     .__contains__("text")  # exclude "text" in filename
     and not os.path.normpath(f)
     .split(os.sep)[0]
-    .startswith("lab0")  # exclude lab0 folder
+    .startswith("lab/lab0/")  # exclude lab0 folder
     and not os.path.normpath(f)
     .split(os.sep)[0]
-    .startswith("lab1")  # exclude lab1 folder
+    .startswith("lab/lab1/")  # exclude lab1 folder
 ]
 
 
