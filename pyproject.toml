@@ -24,13 +24,12 @@ classifiers = [
     "Operating System :: OS Independent"
 ]
 dependencies = [
-    "porepy[development,testing] @ git+https://github.com/pmgbergen/porepy.git@develop",
     "pygeon[development,testing] @ git+https://github.com/compgeo-mox/pygeon.git@main"
 ]
 
 # Information for the build system.
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["lab"]
 
 [tool.setuptools.package-data]
 "pygeon" = [
