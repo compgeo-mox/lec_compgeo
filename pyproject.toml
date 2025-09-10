@@ -1,0 +1,62 @@
+# Configuration file inspired by PorePy
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+# Project information.
+[project]
+name = "lec_compgeo"
+version = "0.1.0"
+description = "laboratory examples for the course Numerical Methods for the Geosciences"
+readme = "Readme.md"
+license = { text = "GPL" }
+keywords = ["porous media mixed-dimensional modeling structure-preserving"]
+maintainers = [
+    { name = "Anna Scotti", email = "anna.scotti@polimi.com" },
+    { name = "Alessio Fumagalli", email = "alessio.fumagalli@polimi.it" },
+]
+urls = { "Homepage" = "https://github.com/compgeo-mox/lec_compgeo" }
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License (GPL)",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+    "porepy[development,testing] @ git+https://github.com/pmgbergen/porepy.git@develop",
+    "pygeon[development,testing] @ git+https://github.com/compgeo-mox/pygeon.git@main"
+]
+
+# Information for the build system.
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"pygeon" = [
+    "py.typed",
+]
+
+# Testing.
+[tool.pytest.ini_options]
+python_files = "tests/*.py"
+addopts = "--cov=src/pygeon --cov-report term-missing -p no:warnings"
+
+# Static analysis.
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E501"]
+ignore = [
+    "E731",  # do not assign a lambda expression, use a def
+    "E266",  # too many leading '#' for block comment
+]
+exclude = [
+    "lab/lab0/*",
+]
+
+# MyPy
+[[tool.mypy.overrides]]
+module = "tests.*"
+disable_error_code = ["import-untyped"]
