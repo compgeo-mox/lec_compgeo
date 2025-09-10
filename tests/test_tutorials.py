@@ -18,6 +18,9 @@ TUTORIAL_FILENAMES = [
     and not os.path.normpath(f)
     .split(os.sep)[0]
     .startswith("lab0")  # exclude lab0 folder
+    and not os.path.normpath(f)
+    .split(os.sep)[0]
+    .startswith("lab1")  # exclude lab1 folder
 ]
 
 
@@ -71,6 +74,5 @@ if __name__ == "__main__":
         filenames = [sys.argv[1]]
     except IndexError:
         filenames = TUTORIAL_FILENAMES
-    print(filenames)
     for tut_path in filenames:
         test_run_tutorials(tutorial_path=tut_path)
