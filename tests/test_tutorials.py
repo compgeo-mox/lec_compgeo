@@ -15,13 +15,10 @@ TUTORIAL_FILENAMES = [
     if not os.path.basename(f)
     .lower()
     .__contains__("text")  # exclude "text" in filename
-    and not os.path.normpath(f)
-    .split(os.sep)[0]
-    .startswith("lab/lab0/")  # exclude lab0 folder
-    and not os.path.normpath(f)
-    .split(os.sep)[0]
-    .startswith("lab/lab1/")  # exclude lab1 folder
+    and not f.startswith("lab/lab0/")  # exclude lab0 folder
+    and not f.startswith("lab/lab1/")  # exclude lab1 folder
 ]
+print(all_notebooks)
 
 
 @pytest.mark.tutorials
@@ -74,5 +71,6 @@ if __name__ == "__main__":
         filenames = [sys.argv[1]]
     except IndexError:
         filenames = TUTORIAL_FILENAMES
-    for tut_path in filenames:
-        test_run_tutorials(tutorial_path=tut_path)
+    print(filenames)
+    # for tut_path in filenames:
+    #    test_run_tutorials(tutorial_path=tut_path)
