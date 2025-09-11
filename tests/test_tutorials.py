@@ -17,7 +17,7 @@ TUTORIAL_FILENAMES = [
     .__contains__("text")  # exclude "text" in filename
     and not f.startswith("lab/lab0/")  # exclude lab0 folder
     and not f.startswith("lab/lab1/")  # exclude lab1 folder
-    and not f.startswith("lab/lab11/")  # exclude lab11 folder
+    and not f.startswith("lab/lab99/")  # exclude lab99 folder
 ]
 print(all_notebooks)
 
